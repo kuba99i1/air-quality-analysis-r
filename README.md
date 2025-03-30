@@ -69,15 +69,15 @@ If you don’t have R, RStudio, or Quarto installed, follow these steps to set u
 
 ### 1. Install R
 
-Download the latest version of R from CRAN and install it following the instructions for your operating system (Windows, macOS, or Linux).
+Download the latest version of R from  [CRAN](https://cran.r-project.org/) and install it following the instructions for your operating system (Windows, macOS, or Linux).
 
 ### 2. Install RStudio
 
-Download RStudio Desktop from Posit (formerly RStudio) and install it.
+Download RStudio Desktop from [Posit](https://posit.co/download/rstudio-desktop/) (formerly RStudio) and install it.
 
 ### 3. Install Quarto
 
-Download and install Quarto from Quarto’s official website.
+Download and install [Quarto.org](https://quarto.org/docs/get-started/) from Quarto’s official website.
 
 Verify the installation by running the following command in the terminal or command prompt:
 
