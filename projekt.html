@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jakub Magdziarz">
+<meta name="dcterms.date" content="2025-03-30">
+
+<title>Metodyka badań i analiz środowiskowych</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="projekt_files/libs/clipboard/clipboard.min.js"></script>
+<script src="projekt_files/libs/quarto-html/quarto.js"></script>
+<script src="projekt_files/libs/quarto-html/popper.min.js"></script>
+<script src="projekt_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="projekt_files/libs/quarto-html/anchor.min.js"></script>
+<link href="projekt_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="projekt_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="projekt_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="projekt_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="projekt_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="projekt_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="projekt_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="projekt_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="projekt_files/libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="projekt_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="projekt_files/libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="projekt_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="projekt_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="projekt_files/libs/leaflet-binding-2.2.0/leaflet.js"></script>
+<script src="projekt_files/libs/leaflet-providers-1.13.0/leaflet-providers_1.13.0.js"></script>
+<script src="projekt_files/libs/leaflet-providers-plugin-2.2.0/leaflet-providers-plugin.js"></script>
+<link href="projekt_files/libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet">
+<link href="projekt_files/libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet">
+<script src="projekt_files/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="projekt_files/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="projekt_files/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#wstęp" id="toc-wstęp" class="nav-link active" data-scroll-target="#wstęp">Wstęp</a></li>
+  <li><a href="#charakterystyka-obszaru-badań" id="toc-charakterystyka-obszaru-badań" class="nav-link" data-scroll-target="#charakterystyka-obszaru-badań">1. Charakterystyka obszaru badań</a></li>
+  <li><a href="#przygotowanie-danych" id="toc-przygotowanie-danych" class="nav-link" data-scroll-target="#przygotowanie-danych">2. Przygotowanie danych</a></li>
+  <li><a href="#ocena-ilościowa-danych" id="toc-ocena-ilościowa-danych" class="nav-link" data-scroll-target="#ocena-ilościowa-danych">3. Ocena ilościowa danych</a></li>
+  <li><a href="#ocena-jakości-powietrza" id="toc-ocena-jakości-powietrza" class="nav-link" data-scroll-target="#ocena-jakości-powietrza">4. Ocena jakości powietrza</a>
+  <ul class="collapse">
+  <li><a href="#poziomy-stężeń-substancji" id="toc-poziomy-stężeń-substancji" class="nav-link" data-scroll-target="#poziomy-stężeń-substancji">4.1 Poziomy stężeń substancji</a></li>
+  </ul></li>
+  <li><a href="#warunki-meteorologiczne-a-steżenia-zanieczyszczeń-powietrza" id="toc-warunki-meteorologiczne-a-steżenia-zanieczyszczeń-powietrza" class="nav-link" data-scroll-target="#warunki-meteorologiczne-a-steżenia-zanieczyszczeń-powietrza">5. Warunki meteorologiczne a steżenia zanieczyszczeń powietrza</a>
+  <ul class="collapse">
+  <li><a href="#badanie-źródła-emisji-pyłu-pm10-w-kielcach" id="toc-badanie-źródła-emisji-pyłu-pm10-w-kielcach" class="nav-link" data-scroll-target="#badanie-źródła-emisji-pyłu-pm10-w-kielcach">5.1 Badanie źródła emisji pyłu PM10 w Kielcach</a></li>
+  </ul></li>
+  <li><a href="#cykliczność-zmian-stężeń" id="toc-cykliczność-zmian-stężeń" class="nav-link" data-scroll-target="#cykliczność-zmian-stężeń">6. Cykliczność zmian stężeń</a></li>
+  <li><a href="#trendy" id="toc-trendy" class="nav-link" data-scroll-target="#trendy">7.Trendy</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Metodyka badań i analiz środowiskowych</h1>
+<p class="subtitle lead">Projekt - analiza jakościowa powietrza</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jakub Magdziarz </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 30, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Grupa projektowa</div>
+    nr.2
+  </div>
+</div>
+
+</header>
+
+<section id="wstęp" class="level2">
+<h2 class="anchored" data-anchor-id="wstęp">Wstęp</h2>
+<p>Celem projektu jest zapoznania się z technikami analizy danych z systemu monitoringu jakości powietrza. Projekt obejmuje ocenę ilościową danych, ocenę jakości powietrza, analizę wpływu czynników meteorologicznych oraz wyznaczenie trendów zmian stężeń zanieczyszczeń w powietrzu.</p>
+</section>
+<section id="charakterystyka-obszaru-badań" class="level2">
+<h2 class="anchored" data-anchor-id="charakterystyka-obszaru-badań">1. Charakterystyka obszaru badań</h2>
+<p>Obszarem badań są okolice Kielc, wybrałem stamtąd dwie stacje pomiaru jakości powietrza <strong>AQMS</strong> z portalu jakości powietrza <a href="https://powietrze.gios.gov.pl/pjp/maps/measuringstation/"><strong>GIOŚ</strong></a>, jedna na ulicy Warszawskiej 108, jej kod krajowy to: <strong>SkKielWarsz1</strong>, jest to stacja na której pomiary prowadzone są metodą automatyczną, Na tej stacji mierzy się PM10(1h) oraz takie zanieczyszczenia jak : CO, C<sub>6</sub>H<sub>6,</sub> NO<sub>2</sub></p>
+<p>Druga stacja zlokalizowana jest na ulicy Targowej 3, a jej kod krajowy to: <strong>SkKielTargow</strong>, pomiary są wykonywane metodami automatyczno-manualnymi, mierzy się tu stężenia substancji takich jak: PM2.5, PM10, SO2, C6H6, NO2, O3</p>
+<p>Dla obu stacji wybrana została stacja meteorologiczna o kodzie <strong>USAF-WBAN: 125700-99999</strong></p>
+<p>W Kielcach ważnym czynnikiem oddziałującym na jakość powietrza będzie transport drogowy, czy także różne zakłady przemysłowe, elektrociepłownie itp.</p>
+</section>
+<section id="przygotowanie-danych" class="level2">
+<h2 class="anchored" data-anchor-id="przygotowanie-danych">2. Przygotowanie danych</h2>
+<p>Na początku postępując zgodnie z instrukcjami na zajęciach z pliku <strong>intro_download_data</strong> pobrałem dane z wielu lat oraz wyselekcjonowalem te dotyczace moich stacji, zaimportowalem metadane oraz polaczylem dane aqm i meteo w wyniku czego powstal dataframe <strong>aqm_met</strong></p>
+<p>Poniżej mapki obrazujące obszar analizy:</p>
+<p><strong>Mapa stacji pomiarowych:</strong></p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-1_7d2b5278d0588008078334f84ceee51e">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-72f53277bc9ed81c56a2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-72f53277bc9ed81c56a2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[50.912475,50.732817,51.657022,50.913433,50.871214,50.433493,50.447096,51.204503,51.208104,51.113033,50.581492,50.942073,51.217483,51.31763,51.50237,50.736389,50.84443,50.804189,51.304817,50.768729,51.086225,51.115933,51.103456,51.077525,51.129378,51.150391,53.249264,53.151452,53.121764,53.134083,52.888422,53.49355,53.491831,52.793122,53.080647,53.136681,53.028647,53.017628,53.012475,52.656773,52.651561,52.637394,52.658467,53.662117,52.029194,51.122147,50.551894,51.814367,50.928239,50.549297,51.259431,51.273078,51.284931,51.78,51.163542,50.716628,51.356689,51.797806,52.143258,52.231908,51.589208,51.75805,51.775378,51.754613,51.776417,51.705581,52.105847,51.379128,51.663331,51.667981,51.291175,51.404406,51.067417,51.760889,51.592058,51.954297,51.526225,51.971711,51.217828,51.601378,51.856692,52.738214,52.747044,51.809103,52.172222,52.437722,51.799722,51.642656,51.939783,49.969017,49.658889,50.025028,50.057678,50.010575,50.069308,50.057447,50.098508,49.991442,50.100569,50.081197,49.831237,50.035117,49.619281,49.476675,50.284,50.033083,49.608647,49.971047,49.743131,50.0075,49.633714,50.020169,50.018253,50.159406,49.894169,49.872364,50.116028,49.293564,51.835242,52.602534,52.285858,52.943172,52.407578,53.083736,52.115725,52.191728,52.556279,52.550938,51.40608,51.415324,51.399084,52.172145,52.228649,52.219298,52.188474,52.207742,52.290864,52.281304,52.285073,52.160772,52.053811,50.849509,50.200778,50.349608,50.972181,50.486194,50.458989,50.876983,50.666736,50.676856,50.423533,53.85255,53.129306,53.126689,53.215492,53.639793,53.181394,54.115897,50.054786,49.565183,50.012083,49.744886,49.511297,49.690169,50.299128,50.318036,50.529892,49.784339,49.546539,50.040675,50.024242,49.571731,50.577828,50.575742,54.378059,54.380279,54.398639,54.400833,54.560836,54.120694,53.722361,54.754139,54.546167,54.104111,54.031247,54.463611,54.43451,54.6045,50.453621,50.621482,50.887606,50.878998,50.886014,50.894374,50.80961,50.823108,50.798077,50.887132,50.429014,50.358659,51.050611,49.813464,49.802075,49.806389,49.755989,50.16385,50.817217,50.836389,50.801918,50.329111,50.279481,49.93785,49.921875,49.952544,50.264611,50.246795,50.233167,50.675693,50.579733,49.972177,50.091142,50.111181,50.285956,50.444736,50.099903,49.719731,50.007629,50.3165,50.493045,50.710889,50.029416,49.671602,54.167847,53.828389,54.305908,53.587873,53.361112,53.426812,53.789233,53.694587,54.124819,52.27672,52.539283,51.74795,52.22565,52.449295,51.840461,52.241497,52.316748,51.637636,52.501318,53.154408,51.884922,52.420319,52.392866,52.459192,52.815262,54.179324,54.193986,54.194114,54.207151,52.926283,53.380975,53.712114,53.698902,53.432169,53.122325],[15.31219,16.64805,16.097822,15.765608,15.700947,16.65366,16.238509,16.180513,16.183784,15.585239,16.498245,17.291333,17.389997,15.431719,16.075051,15.739722,16.494006,16.254111,17.071367,16.269677,17.012689,17.141125,17.059225,17.042817,17.02925,15.008175,19.415086,18.132062,17.987906,17.995708,18.780908,18.762139,18.752503,18.241044,18.684258,17.591539,18.666103,18.612808,18.605681,18.987456,19.051886,19.044486,19.059314,17.934017,23.149389,23.473075,22.982861,21.972375,22.228308,23.197317,22.569133,22.551675,22.210242,22.625944,22.598608,23.290247,19.365903,19.756094,19.233217,19.353689,19.131433,19.529786,19.450992,19.434925,19.452936,19.434842,19.939433,20.282169,19.356064,19.368683,19.517556,19.696956,19.448714,20.250839,18.734811,20.149461,20.016858,18.790289,18.581828,18.940117,19.421231,15.228667,15.246294,15.708042,15.206667,15.122444,16.3175,15.127808,15.518861,20.439511,21.163336,19.726833,19.926189,19.949189,20.053492,19.946008,20.018269,19.936792,20.122561,19.895358,19.923591,20.212689,20.714403,20.034878,19.564044,19.245275,19.966008,19.830422,19.600339,20.259167,21.116833,21.004167,20.992578,19.477464,21.051061,19.497467,19.800639,19.960083,20.791912,19.6451,20.454653,21.288167,20.955928,21.579322,21.237297,20.837489,19.687672,19.709791,21.166819,21.171285,21.147474,22.282001,20.917513,21.004724,21.176233,20.906073,21.042458,20.963383,20.933018,21.033819,20.429892,17.462579,17.83051,18.236575,18.207575,17.97477,17.331906,18.416878,17.899137,17.950278,18.120739,22.984686,23.181744,23.155869,23.642153,22.470274,22.054381,22.938464,21.416256,21.791308,22.674772,21.454617,21.498606,21.7497,21.440942,21.486372,22.112467,22.756239,21.851006,22.004656,22.010575,22.195892,22.054336,21.688367,18.607995,18.620274,18.614333,18.657497,18.493331,17.975861,18.936917,17.534528,17.746194,18.182972,19.032899,17.046722,18.57884,18.22776,20.71564,20.614057,20.579965,20.633692,20.642858,20.657988,20.266032,20.533506,21.425467,21.660726,21.277367,20.886184,21.084175,19.027318,19.04861,19.023194,18.634075,18.659977,19.118997,19.130111,19.106961,19.231222,18.655736,18.975594,18.471278,18.607953,18.975028,19.019469,18.655722,18.682065,19.3267,18.947218,18.216261,18.516139,19.184399,18.829639,18.990236,18.826722,18.455548,18.772375,19.439012,19.458797,18.689527,19.234446,19.410942,22.348338,22.307681,19.564908,20.422046,19.592335,20.486075,19.969041,22.038056,17.074187,17.612239,18.049063,18.268927,16.999634,16.605044,16.865125,16.142154,17.823306,17.773175,16.759572,17.791106,16.877289,16.928442,16.9062,17.208381,15.596342,16.172544,16.211672,16.193236,14.862809,14.663347,16.692517,16.704556,14.5539,14.382245],5,null,null,{"interactive":true,"className":"","stroke":true,"color":["#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#FF0000","#0000FF","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#FF0000","#0000FF","#006400"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#FF0000","#0000FF","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#FF0000","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#006400","#0000FF","#006400","#006400","#006400","#006400","#006400","#FF0000","#0000FF","#006400"],"fillOpacity":2},null,null,["DsCzerStraza<br/>Miejscowość: Czerniawa<br/>Data uruchomienia: 1996-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","DsDziePilsud<br/>Miejscowość: Dzierżoniów<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsGlogWiStwo<br/>Miejscowość: Głogów<br/>Data uruchomienia: 2015-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsJelGorOgin<br/>Miejscowość: Jelenia Góra<br/>Data uruchomienia: 2014-10-20<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsJelGorSoko<br/>Miejscowość: Jelenia Góra<br/>Data uruchomienia: 2014-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsKlodzSzkol<br/>Miejscowość: Kłodzko<br/>Data uruchomienia: 2009-06-05<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsKudowaMOB<br/>Miejscowość: Kudowa-Zdrój<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsLegAlRzecz<br/>Miejscowość: Legnica<br/>Data uruchomienia: 2004-10-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsLegPolarna<br/>Miejscowość: Legnica<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsLwowekSlasMOB<br/>Miejscowość: Lwówek Śląski<br/>Data uruchomienia: 2022-01-13<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsNowRudJezi<br/>Miejscowość: Nowa Ruda<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsOlawZolnAK<br/>Miejscowość: Oława<br/>Data uruchomienia: 2008-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsOlesBrzozo<br/>Miejscowość: Oleśnica<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsOsieczow21<br/>Miejscowość: Osieczów<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","DsPolKasztan<br/>Miejscowość: Polkowice<br/>Data uruchomienia: 2004-05-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsSniezkaObs<br/>Miejscowość: Karpacz<br/>Data uruchomienia: 2000-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","DsSwidnFolwa<br/>Miejscowość: Świdnica<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsSzczaKolej<br/>Miejscowość: Szczawno-Zdrój<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsTrzebniMaj<br/>Miejscowość: Trzebnica<br/>Data uruchomienia: 2020-12-23<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsWalbrzWyso<br/>Miejscowość: Wałbrzych<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsWrocAlWisn<br/>Miejscowość: Wrocław<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","DsWrocBartni<br/>Miejscowość: Wrocław<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","DsWrocNaGrob<br/>Miejscowość: Wrocław<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsWrocOrzech<br/>Miejscowość: Wrocław<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsWrocWybCon<br/>Miejscowość: Wrocław<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","DsZgorBohGet<br/>Miejscowość: Zgorzelec<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpBrodKochan<br/>Miejscowość: Brodnica<br/>Data uruchomienia: 2015-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpBydFieldor<br/>Miejscowość: Bydgoszcz<br/>Data uruchomienia: 2010-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","KpBydPlPozna<br/>Miejscowość: Bydgoszcz<br/>Data uruchomienia: 2006-01-06<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","KpBydWarszaw<br/>Miejscowość: Bydgoszcz<br/>Data uruchomienia: 1995-01-21<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpCiechTezni<br/>Miejscowość: Ciechocinek<br/>Data uruchomienia: 1995-04-05<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","KpGrudPilsud<br/>Miejscowość: Grudziądz<br/>Data uruchomienia: 2012-03-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","KpGrudSienki<br/>Miejscowość: Grudziądz<br/>Data uruchomienia: 2011-04-29<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpInowSolank<br/>Miejscowość: Inowrocław<br/>Data uruchomienia: 2011-03-04<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","KpKoniczynka<br/>Miejscowość: Koniczynka<br/>Data uruchomienia: 1996-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","KpNaklWawrzy<br/>Miejscowość: Nakło nad Notecią<br/>Data uruchomienia: 2020-12-29<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpToruDziewu<br/>Miejscowość: Toruń<br/>Data uruchomienia: 1993-04-20<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpToruKaszow<br/>Miejscowość: Toruń<br/>Data uruchomienia: 1997-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","KpToruWSikor<br/>Miejscowość: Toruń<br/>Data uruchomienia: 2012-03-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpWieniZdroj<br/>Miejscowość: Wieniec-Zdrój<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","KpWloclGniaz<br/>Miejscowość: Włocławek<br/>Data uruchomienia: 2017-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","KpWloclKalis<br/>Miejscowość: Włocławek<br/>Data uruchomienia: 2018-12-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","KpWloclOkrze<br/>Miejscowość: Włocławek<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","KpZielBoryTu<br/>Miejscowość: Zielonka<br/>Data uruchomienia: 2004-05-27<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LbBiaPodOrze<br/>Miejscowość: Biała Podlaska<br/>Data uruchomienia: 1993-04-07<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LbChelmPolan<br/>Miejscowość: Chełm<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LbFlorianRPN<br/>Miejscowość: Florianka<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LbJarczWolaM<br/>Miejscowość: Jarczew<br/>Data uruchomienia: 1985-10-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LbKrasKoszar<br/>Miejscowość: Kraśnik<br/>Data uruchomienia: 2007-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","LbKrasnobrod<br/>Miejscowość: Krasnobród<br/>Data uruchomienia: 2020-01-16<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","LbLubObywate<br/>Miejscowość: Lublin<br/>Data uruchomienia: 2010-05-21<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LbLubSliwins<br/>Miejscowość: Lublin<br/>Data uruchomienia: 2001-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LbNaleczAlMa<br/>Miejscowość: Nałęczów<br/>Data uruchomienia: 2019-01-22<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","LbRadzPodSit<br/>Miejscowość: Radzyń Podlaski<br/>Data uruchomienia: 2006-11-08<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","LbWilczopole<br/>Miejscowość: Wilczopole<br/>Data uruchomienia: 2006-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LbZamoHrubie<br/>Miejscowość: Zamość<br/>Data uruchomienia: 1992-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdBelchEdwar<br/>Miejscowość: Bełchatów<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdBrzeReform<br/>Miejscowość: Brzeziny<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdGajewUjWod<br/>Miejscowość: Gajew<br/>Data uruchomienia: 2003-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LdKutn1Maja7MOB<br/>Miejscowość: Kutno<br/>Data uruchomienia: 2019-09-19<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLaskNarutoMOB<br/>Miejscowość: Łask<br/>Data uruchomienia: 2020-10-26<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLodzCzerni<br/>Miejscowość: Łódź<br/>Data uruchomienia: 2003-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLodzGdansk<br/>Miejscowość: Łódź<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLodzJanPaw<br/>Miejscowość: Łódź<br/>Data uruchomienia: 2015-10-27<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","LdLodzLegion<br/>Miejscowość: Łódź<br/>Data uruchomienia: 2004-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLodzRudzka<br/>Miejscowość: Łódź<br/>Data uruchomienia: 1975-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdLowiczSien<br/>Miejscowość: Łowicz<br/>Data uruchomienia: 2015-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdOpocSkCuri<br/>Miejscowość: Opoczno<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdPabiKilins<br/>Miejscowość: Pabianice<br/>Data uruchomienia: 2009-12-08<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdPabiKonsta<br/>Miejscowość: Pabianice<br/>Data uruchomienia: 2003-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","LdParzniUjWo<br/>Miejscowość: Parzniewice<br/>Data uruchomienia: 2003-10-17<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LdPioTrKraPr<br/>Miejscowość: Piotrków Trybunalski<br/>Data uruchomienia: 2009-12-15<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdRadomsRoln<br/>Miejscowość: Radomsko<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdRawaNiepod<br/>Miejscowość: Rawa Mazowiecka<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdSieraPolna<br/>Miejscowość: Sieradz<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdSkierKonop<br/>Miejscowość: Skierniewice<br/>Data uruchomienia: 2014-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdToMaSwAnto<br/>Miejscowość: Tomaszów Mazowiecki<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdUniejZamko<br/>Miejscowość: Uniejów<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","LdWielunPOW1<br/>Miejscowość: Wieluń<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdZduWoKrole<br/>Miejscowość: Zduńska Wola<br/>Data uruchomienia: 2011-08-16<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LdZgieMielcz<br/>Miejscowość: Zgierz<br/>Data uruchomienia: 2003-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuGorzKosGdy<br/>Miejscowość: Gorzów Wielkopolski<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuGorzPilsud<br/>Miejscowość: Gorzów Wielkopolski<br/>Data uruchomienia: 2010-01-08<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuNowaSolKos<br/>Miejscowość: Nowa Sól<br/>Data uruchomienia: 2021-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuSmolBytnic<br/>Miejscowość: Smolary Bytnickie<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","LuSulecDudka<br/>Miejscowość: Sulęcin<br/>Data uruchomienia: 2011-01-26<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuWsKaziWiel<br/>Miejscowość: Wschowa<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuZarySzyman<br/>Miejscowość: Żary<br/>Data uruchomienia: 2012-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","LuZielKrotka<br/>Miejscowość: Zielona Góra<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpBochKonfed<br/>Miejscowość: Bochnia<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpGorlKrasin<br/>Miejscowość: Gorlice<br/>Data uruchomienia: 2009-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpKaszowLisz<br/>Miejscowość: Kaszów<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","MpKrakAlKras<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","MpKrakBujaka<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpKrakBulwar<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","MpKrakDietla<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","MpKrakOsPias<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpKrakSwoszo<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpKrakWadow<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","MpKrakZloRog<br/>Miejscowość: Kraków<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpMyslenSoli<br/>Miejscowość: Myślenice<br/>Data uruchomienia: 2021-03-17<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpNiepo3Maja<br/>Miejscowość: Niepołomice<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpNoSaczNadb<br/>Miejscowość: Nowy Sącz<br/>Data uruchomienia: 2010-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpNoTargAlTy<br/>Miejscowość: Nowy Targ<br/>Data uruchomienia: 2021-12-08<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpOlkuCegiel<br/>Miejscowość: Olkusz<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpOswiecBema<br/>Miejscowość: Oświęcim<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpRabkaOrkan<br/>Miejscowość: Rabka-Zdrój<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpSkawOsOgro<br/>Miejscowość: Skawina<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpSuchaNiesz<br/>Miejscowość: Sucha Beskidzka<br/>Data uruchomienia: 2017-06-10<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpSzarowSpok<br/>Miejscowość: Szarów<br/>Data uruchomienia: 2015-05-04<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","MpSzymbaGorl<br/>Miejscowość: Szymbark<br/>Data uruchomienia: 2004-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","MpTarBitStud<br/>Miejscowość: Tarnów<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpTarRoSitko<br/>Miejscowość: Tarnów<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","MpTrzebOsZWM<br/>Miejscowość: Trzebinia<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpTuchChopin<br/>Miejscowość: Tuchów<br/>Data uruchomienia: 2009-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpWadowiBalyMOB<br/>Miejscowość: Wadowice<br/>Data uruchomienia: 2021-12-27<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpZabieWapie<br/>Miejscowość: Zabierzów<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MpZakopaSien<br/>Miejscowość: Zakopane<br/>Data uruchomienia: 2003-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzBelsIGFPAN<br/>Miejscowość: Belsk Duży<br/>Data uruchomienia: 1991-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","MzBialaKmiciMOB<br/>Miejscowość: Biała<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: podmiejski","MzGranicaKPN<br/>Miejscowość: Granica<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","MzGutyDuCzer<br/>Miejscowość: Guty Duże<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","MzLegZegrzyn<br/>Miejscowość: Legionowo<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","MzOstroHalle<br/>Miejscowość: Ostrołęka<br/>Data uruchomienia: 2015-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzOtwoBrzozo<br/>Miejscowość: Otwock<br/>Data uruchomienia: 2010-05-11<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","MzPiasPulask<br/>Miejscowość: Piastów<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","MzPlocKroJad<br/>Miejscowość: Płock<br/>Data uruchomienia: 1993-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","MzPlocMiReja<br/>Miejscowość: Płock<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzRad25Czerw<br/>Miejscowość: Radom<br/>Data uruchomienia: 2010-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzRadHallera<br/>Miejscowość: Radom<br/>Data uruchomienia: 2010-06-23<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzRadTochter<br/>Miejscowość: Radom<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzSiedKonars<br/>Miejscowość: Siedlce<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarAKrzywo<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarAlNiepo<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","MzWarBajkowa<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarChrosci<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarKondrat<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarMeteo<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2021-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarTolstoj<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2000-05-15<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzWarWokalna<br/>Miejscowość: Warszawa<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","MzZyraRoosev<br/>Miejscowość: Żyrardów<br/>Data uruchomienia: 2003-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpBrzegPoprz<br/>Miejscowość: Brzeg<br/>Data uruchomienia: 2021-01-11<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpGlubRatusz<br/>Miejscowość: Głubczyce<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpKKozBSmial<br/>Miejscowość: Kędzierzyn-Koźle<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpKluczMicki<br/>Miejscowość: Kluczbork<br/>Data uruchomienia: 2010-08-06<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpKrap3MajaMOB<br/>Miejscowość: Krapkowice<br/>Data uruchomienia: 2022-01-03<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpNysaRodzie<br/>Miejscowość: Nysa<br/>Data uruchomienia: 2013-10-28<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpOlesSlowac<br/>Miejscowość: Olesno<br/>Data uruchomienia: 2011-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpOpoleKoszy<br/>Miejscowość: Opole<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpOpoleOsAKr<br/>Miejscowość: Opole<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","OpZdziePiast<br/>Miejscowość: Zdzieszowice<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdAugustowUz<br/>Miejscowość: Augustów<br/>Data uruchomienia: 2020-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdBialWarsza<br/>Miejscowość: Białystok<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdBialWaszyn<br/>Miejscowość: Białystok<br/>Data uruchomienia: 2004-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdBorsukowiz<br/>Miejscowość: Borsukowizna<br/>Data uruchomienia: 2004-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","PdGrajewoWPoMOB<br/>Miejscowość: Grajewo<br/>Data uruchomienia: 2019-12-30<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdLomSikorsk<br/>Miejscowość: Łomża<br/>Data uruchomienia: 2002-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PdSuwPulask2<br/>Miejscowość: Suwałki<br/>Data uruchomienia: 2018-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkDebiGrottg<br/>Miejscowość: Dębica<br/>Data uruchomienia: 2015-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkIwonZdrRab<br/>Miejscowość: Iwonicz-Zdrój<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","PkJarosPruch<br/>Miejscowość: Jarosław<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkJasloSikor<br/>Miejscowość: Jasło<br/>Data uruchomienia: 2009-08-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkKrempnaMPN<br/>Miejscowość: Krempna<br/>Data uruchomienia: 2014-10-06<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","PkKrosKletow<br/>Miejscowość: Krosno<br/>Data uruchomienia: 2008-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkMielBierna<br/>Miejscowość: Mielec<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkMielPogodn<br/>Miejscowość: Mielec<br/>Data uruchomienia: 2016-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","PkNiskoSzkla<br/>Miejscowość: Nisko<br/>Data uruchomienia: 1989-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkPrzemGrunw<br/>Miejscowość: Przemyśl<br/>Data uruchomienia: 2013-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkRymZdrPark<br/>Miejscowość: Rymanów-Zdrój<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","PkRzeszPilsu<br/>Miejscowość: Rzeszów<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","PkRzeszRejta<br/>Miejscowość: Rzeszów<br/>Data uruchomienia: 2010-02-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkSanoSadowa<br/>Miejscowość: Sanok<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkStWolWoPol<br/>Miejscowość: Stalowa Wola<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PkTarnDabrow<br/>Miejscowość: Tarnobrzeg<br/>Data uruchomienia: 2012-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmGdaGrunwalTMP<br/>Miejscowość: Gdańsk<br/>Data uruchomienia: 2023-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","PmGdaLeczkow<br/>Miejscowość: Gdańsk<br/>Data uruchomienia: 1998-10-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmGdaPowWiel<br/>Miejscowość: Gdańsk<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmGdaWyzwole<br/>Miejscowość: Gdańsk<br/>Data uruchomienia: 1998-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmGdyPorebsk<br/>Miejscowość: Gdynia<br/>Data uruchomienia: 1997-03-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmKosTargowa<br/>Miejscowość: Kościerzyna<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmKwiSportow<br/>Miejscowość: Kwidzyn<br/>Data uruchomienia: 2010-06-20<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmLebaRabka1<br/>Miejscowość: Łeba<br/>Data uruchomienia: 2000-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","PmLebMalczew<br/>Miejscowość: Lębork<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmLinieKosci<br/>Miejscowość: Liniewko Kościerskie<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","PmMalMickiew<br/>Miejscowość: Malbork<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmSlupKniazi<br/>Miejscowość: Słupsk<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmSopBiPlowc<br/>Miejscowość: Sopot<br/>Data uruchomienia: 2021-03-17<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","PmWejhDworco<br/>Miejscowość: Wejherowo<br/>Data uruchomienia: 2022-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkBuskRokosz<br/>Miejscowość: Busko-Zdrój<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkGoluUjWody<br/>Miejscowość: Gołuchów<br/>Data uruchomienia: 2020-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","SkKielJurajs<br/>Miejscowość: Kielce<br/>Data uruchomienia: 2021-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkKielTargow<br/>Miejscowość: Kielce<br/>Data uruchomienia: 2018-07-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkKielWarsz1<br/>Miejscowość: Kielce<br/>Data uruchomienia: 2021-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","SkKielWarsza<br/>Miejscowość: Kielce<br/>Data uruchomienia: 2015-09-29<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkMaloSlonec<br/>Miejscowość: Małogoszcz<br/>Data uruchomienia: 2017-10-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkNowiParkow<br/>Miejscowość: Nowiny<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","SkOpatPartyz<br/>Miejscowość: Opatów<br/>Data uruchomienia: 2021-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkOzarOsWzgo<br/>Miejscowość: Ożarów<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkPolaRuszcz<br/>Miejscowość: Połaniec<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SkSolecZdroj<br/>Miejscowość: Solec Zdrój<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","SkStaraZlota<br/>Miejscowość: Starachowice<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlBielKossak<br/>Miejscowość: Bielsko-Biała<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlBielPartyz<br/>Miejscowość: Bielsko-Biała<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","SlBielSterni<br/>Miejscowość: Bielsko-Biała<br/>Data uruchomienia: 2009-12-30<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlCiesChopin<br/>Miejscowość: Cieszyn<br/>Data uruchomienia: 2020-12-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlCzerKopaln<br/>Miejscowość: Czerwionka-Leszczyny<br/>Data uruchomienia: 2013-12-22<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlCzestoArmK<br/>Miejscowość: Częstochowa<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","SlCzestoBacz<br/>Miejscowość: Częstochowa<br/>Data uruchomienia: 1992-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlCzestoZana<br/>Miejscowość: Częstochowa<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlDabroTysia<br/>Miejscowość: Dąbrowa Górnicza<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlGliwicMewy<br/>Miejscowość: Gliwice<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlGoczaUzdroMOB<br/>Miejscowość: Goczałkowice-Zdrój<br/>Data uruchomienia: 2019-04-22<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","SlGodGliniki<br/>Miejscowość: Godów<br/>Data uruchomienia: 2009-09-07<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","SlJastrZdroj<br/>Miejscowość: Jastrzębie-Zdrój<br/>Data uruchomienia: 2022-03-28<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","SlKatoKossut<br/>Miejscowość: Katowice<br/>Data uruchomienia: 1992-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlKatoPlebA4<br/>Miejscowość: Katowice<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","SlKnurJedNar<br/>Miejscowość: Knurów<br/>Data uruchomienia: 2009-04-29<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlLublSzymal<br/>Miejscowość: Lubliniec<br/>Data uruchomienia: 2018-09-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlMyszMiedzi<br/>Miejscowość: Myszków<br/>Data uruchomienia: 2008-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlPszczBoged<br/>Miejscowość: Pszczyna<br/>Data uruchomienia: 2009-12-30<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlRaciborzWPMOB<br/>Miejscowość: Racibórz<br/>Data uruchomienia: 2019-06-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlRybniBorki<br/>Miejscowość: Rybnik<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlSosnoLubel<br/>Miejscowość: Sosnowiec<br/>Data uruchomienia: 2010-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlTarnoLitew<br/>Miejscowość: Tarnowskie Góry<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlTychyTolst<br/>Miejscowość: Tychy<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlUstronSana<br/>Miejscowość: Ustroń<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: podmiejski","SlWodzGalczy<br/>Miejscowość: Wodzisław Śląski<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlZabSkloCur<br/>Miejscowość: Zabrze<br/>Data uruchomienia: 2001-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlZawGalczyn<br/>Miejscowość: Zawiercie<br/>Data uruchomienia: 2019-08-12<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlZlotPotLes<br/>Miejscowość: Złoty Potok<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","SlZorySikor2<br/>Miejscowość: Żory<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","SlZywieKoper<br/>Miejscowość: Żywiec<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmElbBazynsk<br/>Miejscowość: Elbląg<br/>Data uruchomienia: 2005-06-15<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmElkStadion<br/>Miejscowość: Ełk<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmGoldJacwie<br/>Miejscowość: Gołdap<br/>Data uruchomienia: 2005-06-07<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmIlawAnders<br/>Miejscowość: Iława<br/>Data uruchomienia: 2013-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmNiTraugutt<br/>Miejscowość: Nidzica<br/>Data uruchomienia: 2009-03-27<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmNMLDzialyn<br/>Miejscowość: Nowe Miasto Lubawskie<br/>Data uruchomienia: 2021-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmOlsPuszkin<br/>Miejscowość: Olsztyn<br/>Data uruchomienia: 2004-06-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmOstrPilsud<br/>Miejscowość: Ostróda<br/>Data uruchomienia: 2017-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WmPuszczaBor<br/>Miejscowość: Diabla Góra<br/>Data uruchomienia: 1994-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","WpBoroDrapal<br/>Miejscowość: Borówiec<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","WpGniePaczko<br/>Miejscowość: Gniezno<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpKaliSawick<br/>Miejscowość: Kalisz<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpKoniWyszyn<br/>Miejscowość: Konin<br/>Data uruchomienia: 2003-03-03<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpKozieosLes<br/>Miejscowość: Koziegłowy<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpLeszKiepur<br/>Miejscowość: Leszno<br/>Data uruchomienia: 2011-11-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpMosinaCzer<br/>Miejscowość: Mosina<br/>Data uruchomienia: 2020-11-16<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpNoTomSzpit<br/>Miejscowość: Nowy Tomyśl<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpOstWieWyso<br/>Miejscowość: Ostrów Wielkopolski<br/>Data uruchomienia: 2004-09-03<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpPiaskiKrzy<br/>Miejscowość: Krzyżówka<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski","WpPilaKusoci<br/>Miejscowość: Piła<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpPleszAlMic<br/>Miejscowość: Pleszew<br/>Data uruchomienia: 2014-11-24<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpPoznDabrow<br/>Miejscowość: Poznań<br/>Data uruchomienia: 2005-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpPoznSpycha<br/>Miejscowość: Poznań<br/>Data uruchomienia: 2012-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpPoznSzyman<br/>Miejscowość: Poznań<br/>Data uruchomienia: 2004-04-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","WpWagrowLipo<br/>Miejscowość: Wągrowiec<br/>Data uruchomienia: 2010-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpKolZolkiew<br/>Miejscowość: Kołobrzeg<br/>Data uruchomienia: 2018-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpKoszArKraj<br/>Miejscowość: Koszalin<br/>Data uruchomienia: 2006-10-05<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","ZpKoszChopin<br/>Miejscowość: Koszalin<br/>Data uruchomienia: 2019-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpKoszSpasow<br/>Miejscowość: Koszalin<br/>Data uruchomienia: 2009-12-22<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpMyslZaBram<br/>Miejscowość: Myślibórz<br/>Data uruchomienia: 2010-04-20<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpSzczAndrze<br/>Miejscowość: Szczecin<br/>Data uruchomienia: 2004-12-31<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpSzczec1Maj<br/>Miejscowość: Szczecinek<br/>Data uruchomienia: 2009-12-11<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: miejski","ZpSzczecPrze<br/>Miejscowość: Szczecinek<br/>Data uruchomienia: 2011-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: przemysłowa<br/>Typ obszaru: miejski","ZpSzczPilsud<br/>Miejscowość: Szczecin<br/>Data uruchomienia: 2004-12-31<br/>Data zamknięcia: NA<br/>Typ stacji: komunikacyjna<br/>Typ obszaru: miejski","ZpWiduBulRyb<br/>Miejscowość: Widuchowa<br/>Data uruchomienia: 2003-01-01<br/>Data zamknięcia: NA<br/>Typ stacji: tło<br/>Typ obszaru: pozamiejski"],null,["DsCzerStraza","DsDziePilsud","DsGlogWiStwo","DsJelGorOgin","DsJelGorSoko","DsKlodzSzkol","DsKudowaMOB","DsLegAlRzecz","DsLegPolarna","DsLwowekSlasMOB","DsNowRudJezi","DsOlawZolnAK","DsOlesBrzozo","DsOsieczow21","DsPolKasztan","DsSniezkaObs","DsSwidnFolwa","DsSzczaKolej","DsTrzebniMaj","DsWalbrzWyso","DsWrocAlWisn","DsWrocBartni","DsWrocNaGrob","DsWrocOrzech","DsWrocWybCon","DsZgorBohGet","KpBrodKochan","KpBydFieldor","KpBydPlPozna","KpBydWarszaw","KpCiechTezni","KpGrudPilsud","KpGrudSienki","KpInowSolank","KpKoniczynka","KpNaklWawrzy","KpToruDziewu","KpToruKaszow","KpToruWSikor","KpWieniZdroj","KpWloclGniaz","KpWloclKalis","KpWloclOkrze","KpZielBoryTu","LbBiaPodOrze","LbChelmPolan","LbFlorianRPN","LbJarczWolaM","LbKrasKoszar","LbKrasnobrod","LbLubObywate","LbLubSliwins","LbNaleczAlMa","LbRadzPodSit","LbWilczopole","LbZamoHrubie","LdBelchEdwar","LdBrzeReform","LdGajewUjWod","LdKutn1Maja7MOB","LdLaskNarutoMOB","LdLodzCzerni","LdLodzGdansk","LdLodzJanPaw","LdLodzLegion","LdLodzRudzka","LdLowiczSien","LdOpocSkCuri","LdPabiKilins","LdPabiKonsta","LdParzniUjWo","LdPioTrKraPr","LdRadomsRoln","LdRawaNiepod","LdSieraPolna","LdSkierKonop","LdToMaSwAnto","LdUniejZamko","LdWielunPOW1","LdZduWoKrole","LdZgieMielcz","LuGorzKosGdy","LuGorzPilsud","LuNowaSolKos","LuSmolBytnic","LuSulecDudka","LuWsKaziWiel","LuZarySzyman","LuZielKrotka","MpBochKonfed","MpGorlKrasin","MpKaszowLisz","MpKrakAlKras","MpKrakBujaka","MpKrakBulwar","MpKrakDietla","MpKrakOsPias","MpKrakSwoszo","MpKrakWadow","MpKrakZloRog","MpMyslenSoli","MpNiepo3Maja","MpNoSaczNadb","MpNoTargAlTy","MpOlkuCegiel","MpOswiecBema","MpRabkaOrkan","MpSkawOsOgro","MpSuchaNiesz","MpSzarowSpok","MpSzymbaGorl","MpTarBitStud","MpTarRoSitko","MpTrzebOsZWM","MpTuchChopin","MpWadowiBalyMOB","MpZabieWapie","MpZakopaSien","MzBelsIGFPAN","MzBialaKmiciMOB","MzGranicaKPN","MzGutyDuCzer","MzLegZegrzyn","MzOstroHalle","MzOtwoBrzozo","MzPiasPulask","MzPlocKroJad","MzPlocMiReja","MzRad25Czerw","MzRadHallera","MzRadTochter","MzSiedKonars","MzWarAKrzywo","MzWarAlNiepo","MzWarBajkowa","MzWarChrosci","MzWarKondrat","MzWarMeteo","MzWarTolstoj","MzWarWokalna","MzZyraRoosev","OpBrzegPoprz","OpGlubRatusz","OpKKozBSmial","OpKluczMicki","OpKrap3MajaMOB","OpNysaRodzie","OpOlesSlowac","OpOpoleKoszy","OpOpoleOsAKr","OpZdziePiast","PdAugustowUz","PdBialWarsza","PdBialWaszyn","PdBorsukowiz","PdGrajewoWPoMOB","PdLomSikorsk","PdSuwPulask2","PkDebiGrottg","PkIwonZdrRab","PkJarosPruch","PkJasloSikor","PkKrempnaMPN","PkKrosKletow","PkMielBierna","PkMielPogodn","PkNiskoSzkla","PkPrzemGrunw","PkRymZdrPark","PkRzeszPilsu","PkRzeszRejta","PkSanoSadowa","PkStWolWoPol","PkTarnDabrow","PmGdaGrunwalTMP","PmGdaLeczkow","PmGdaPowWiel","PmGdaWyzwole","PmGdyPorebsk","PmKosTargowa","PmKwiSportow","PmLebaRabka1","PmLebMalczew","PmLinieKosci","PmMalMickiew","PmSlupKniazi","PmSopBiPlowc","PmWejhDworco","SkBuskRokosz","SkGoluUjWody","SkKielJurajs","SkKielTargow","SkKielWarsz1","SkKielWarsza","SkMaloSlonec","SkNowiParkow","SkOpatPartyz","SkOzarOsWzgo","SkPolaRuszcz","SkSolecZdroj","SkStaraZlota","SlBielKossak","SlBielPartyz","SlBielSterni","SlCiesChopin","SlCzerKopaln","SlCzestoArmK","SlCzestoBacz","SlCzestoZana","SlDabroTysia","SlGliwicMewy","SlGoczaUzdroMOB","SlGodGliniki","SlJastrZdroj","SlKatoKossut","SlKatoPlebA4","SlKnurJedNar","SlLublSzymal","SlMyszMiedzi","SlPszczBoged","SlRaciborzWPMOB","SlRybniBorki","SlSosnoLubel","SlTarnoLitew","SlTychyTolst","SlUstronSana","SlWodzGalczy","SlZabSkloCur","SlZawGalczyn","SlZlotPotLes","SlZorySikor2","SlZywieKoper","WmElbBazynsk","WmElkStadion","WmGoldJacwie","WmIlawAnders","WmNiTraugutt","WmNMLDzialyn","WmOlsPuszkin","WmOstrPilsud","WmPuszczaBor","WpBoroDrapal","WpGniePaczko","WpKaliSawick","WpKoniWyszyn","WpKozieosLes","WpLeszKiepur","WpMosinaCzer","WpNoTomSzpit","WpOstWieWyso","WpPiaskiKrzy","WpPilaKusoci","WpPleszAlMic","WpPoznDabrow","WpPoznSpycha","WpPoznSzyman","WpWagrowLipo","ZpKolZolkiew","ZpKoszArKraj","ZpKoszChopin","ZpKoszSpasow","ZpMyslZaBram","ZpSzczAndrze","ZpSzczec1Maj","ZpSzczecPrze","ZpSzczPilsud","ZpWiduBulRyb"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["darkgreen","red","blue"],"labels":["tło","przemysłowa","komunikacyjna"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"unknown","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[49.293564,54.754139],"lng":[14.382245,23.642153]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Mapy z lokalizacją stacji meteorologicznych w Polsce:</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-2_231f7fccbc061a5fc58feb899dd3b8e3">
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<p>oraz w okolicach Kielc:</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-3_78a8ed81772035635fa5a46934dd135b">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c6a03b094213133bb86d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c6a03b094213133bb86d">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addProviderTiles","args":["Esri.WorldImagery",null,"Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[50.817,51.35,50.7,51.533,50.033,51.567,50.078,50.817,51.551,51.552],[20.7,19.867,21.717,20.017,20.983,21.55,19.785,19.1,21.894,19.179],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b>KIELCE-SUKOW<\/b><br/><hr><b>Code:<\/b> 125700-99999<br/><b>Start:<\/b> 1934-10-02<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 8.3 km","<b>SULEJOW<\/b><br/><hr><b>Code:<\/b> 124690-99999<br/><b>Start:<\/b> 1973-01-01<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 74.9 km","<b>SANDOMIERZ<\/b><br/><hr><b>Code:<\/b> 125850-99999<br/><b>Start:<\/b> 1940-01-01<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 78.7 km","<b>TOMASZOW<\/b><br/><hr><b>Code:<\/b> 121054-99999<br/><b>Start:<\/b> 2004-05-10<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 84.5 km","<b>TARNOW<\/b><br/><hr><b>Code:<\/b> 125750-99999<br/><b>Start:<\/b> 1939-11-26<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 97.3 km","<b>KOZIENICE<\/b><br/><hr><b>Code:<\/b> 124880-99999<br/><b>Start:<\/b> 1975-08-12<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 99.6 km","<b>BALICE<\/b><br/><hr><b>Code:<\/b> 125660-99999<br/><b>Start:<\/b> 1931-01-03<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 107.4 km","<b>CZESTOCHOWA<\/b><br/><hr><b>Code:<\/b> 125500-99999<br/><b>Start:<\/b> 1940-01-01<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 107.9 km","<b>DEBLIN<\/b><br/><hr><b>Code:<\/b> 124900-99999<br/><b>Start:<\/b> 1934-01-04<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 115.3 km","<b>LASK<\/b><br/><hr><b>Code:<\/b> 124540-99999<br/><b>Start:<\/b> 2002-06-01<br/><b>End:<\/b> 2025-03-27<br/><b>Distance:<\/b> 126 km"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircles","args":[50.878998,20.633692,200,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":20,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},["Search location<br/>Lat = 50.817<br/>Lon = 20.7","Search location<br/>Lat = 51.35<br/>Lon = 19.867","Search location<br/>Lat = 50.7<br/>Lon = 21.717","Search location<br/>Lat = 51.533<br/>Lon = 20.017","Search location<br/>Lat = 50.033<br/>Lon = 20.983","Search location<br/>Lat = 51.567<br/>Lon = 21.55","Search location<br/>Lat = 50.078<br/>Lon = 19.785","Search location<br/>Lat = 50.817<br/>Lon = 19.1","Search location<br/>Lat = 51.551<br/>Lon = 21.894","Search location<br/>Lat = 51.552<br/>Lon = 19.179"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addLayersControl","args":[["OpenStreetMap","Esri.WorldImagery"],[],{"collapsed":false,"autoZIndex":false,"position":"topright"}]}],"limits":{"lat":[50.033,51.567],"lng":[19.1,21.894]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="ocena-ilościowa-danych" class="level2">
+<h2 class="anchored" data-anchor-id="ocena-ilościowa-danych">3. Ocena ilościowa danych</h2>
+<p>Przeglądnąłem dane, stacja na ulicy Warszawskiej powstała dosyć niedawno bo w 2021 r. a stacja na ulicy Targowej zaczęła działać w 2018r r., dlatego wybrałem do analizy lata 2021-2022.</p>
+<p>Na pierwszym wykresie widzimy pomiary subtancji takich jak: PM2.5, PM10, SO2, C6H6, NO2 dla stacji <strong>SkKielTargow:</strong> Można zauważyć znaczne zanieczyszczenie powietrza NO2 na przestrzeni dwóch lat, wzrost stężenia SO2 w okresie od października do kwietnia, w podobnym okresie widać wzrost w PM10 i PM2.5</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-4_06a6ad534a6b0356ed77dc8831bb11d3">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"proj.RData"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielTargow"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2021</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timePlot</span>(<span class="at">mydata =</span> , </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"SO2"</span>,<span class="st">"NO2"</span>,<span class="st">"PM2.5"</span>,<span class="st">"PM10"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">y.relation =</span> <span class="st">"free"</span>)<span class="ot">-&gt;</span>wykres1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Drugi wykres pokazuje pomiary stężeń NO2, PM10 oraz C6H6 na stacji <strong>SkKielWarsz1</strong>. Tutaj również widać największe zanieczyszczenie powietrza przez NO2 w okresie 2021-2022. W przypadku PM10 znaczny wzrost zanotowano między styczniem a kwietniem 2022 r. Stężenie C6H6 wzrosło na przełomie 2021 i 2022 r.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-5_5f4bd9704a49c9d940ea60b881a0517c">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielWarsz1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2021</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timePlot</span>(<span class="at">mydata =</span> , </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>,<span class="st">"PM10"</span>,<span class="st">"C6H6"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">y.relation =</span> <span class="st">"free"</span>)<span class="ot">-&gt;</span>wykres2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Trzeci wykres ukazuje pokazano jak na przestrzeni lat 2021-2022 zmieniło się stężenie NO2. Widać że poziom stężenie w powietrzu oscyluje na podobnym poziomie. Jako że lata te to okres po pandemii możliwe że zakłady przemysłowe, transport, rolnictwo itp. chcąc odbudować straty po tym czasie poprzez wzmożone działania przyczyniły sie do tak dużego stężenia NO2.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-6_8579a4e5b43fbe5f201b67f6cec7bd93">
+<details open="">
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2021</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timePlot</span>(<span class="at">mydata =</span> , </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">x.relation =</span> <span class="st">"free"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">y.relation =</span> <span class="st">"free"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"kod"</span>)<span class="ot">-&gt;</span>w3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sprawdzone zostało także czy temperatura miała wpływ na stęzenie na kolejnym wykresie. Jak można zauważyć, niższe temperatury spowodowały wzrost stężenia NO2. Wywnioskować można zatem że w okresie grzewczym stężenie to wzrasta, ponieważ używajac paliw stałych, takich jak węgiel, drewno czy olej opałowy do ogrzewania domów, przemysł oraz transport również mógł mieć znaczacy wpływ na to.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-7_3bf12a8f25fff9b23de5621e96d21873">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2021</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timePlot</span>(<span class="at">mydata =</span> , </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"air_temp"</span>, <span class="st">"NO2"</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">y.relation =</span> <span class="st">"free"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"kod"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">avg.time =</span> <span class="st">"day"</span>)<span class="ot">-&gt;</span>w4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sprawdzając dokładniej w jakim zakresie temperatur stężenie na stacji <strong>SkKielTargow</strong> najbardziej rosło widać, że było to w zakresie 15.5-35.3 stopni Celsjusza, gdy temperatura spadała poniżej zera również widać wzrost chociaż nie tak wysoki.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-8_0732f970418aeb9669ece6b0703a1e09">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielTargow"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2021</span><span class="sc">:</span><span class="dv">2022</span>, <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timeProp</span>(<span class="at">pollutant =</span> <span class="st">"NO2"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">proportion =</span> <span class="st">"air_temp"</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">avg.time =</span> <span class="st">"month"</span>, </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">key.columns =</span> <span class="dv">2</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">key.position =</span> <span class="st">"top"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">1</span>)) <span class="ot">-&gt;</span> w5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ocena-jakości-powietrza" class="level2">
+<h2 class="anchored" data-anchor-id="ocena-jakości-powietrza">4. Ocena jakości powietrza</h2>
+<p>W tym rozdziale sprawdziłem kompletność danych w latach 2018-2022 czyli okres w ktorym stacja <strong>SkKielTargow</strong> zaczeła działać, dla stacji <strong>SkKielWarsz1</strong> do sprawdzenia kompletności danych przeanalizowane tak naprawde zostaną tylko dwa lata jako że uruchomiono tą stację w 2021 r, za dane kompletne uznałem posiadanie co najmniej 90% danych z pomiarów w ciagu roku.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/datatable_a865b58ace1ac5af9d1cccdf4d86315b">
+
+</div>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-10_72ee721ccee19e96113e9cf1ab7e5756">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dla stacji <strong>SkKielWarsz1</strong> sprawdziłem kompletność pomiarów dla CO i C6H6 jako że na tej stacji nie mierzy sie stężenia PM2.5 oraz S02</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-11_99e35ae87b3e9cfef6a4a05633ae0754">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>wykres2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(aqm_ocena_2, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(year), <span class="at">y =</span> dat.cap, <span class="at">fill =</span> dat.cap <span class="sc">&gt;</span> <span class="dv">90</span>)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="fu">unique</span>(aqm_ocena_2<span class="sc">$</span>year)) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> pollutant, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Kompletność danych w poszczególnych latach"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Stacja - SkKielWarsz1"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Rok"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Kompletność pomiarów [%]"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Warunek kompletności"</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"blue"</span>),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"yellow"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"italic"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>),</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Niekompletne"</span>, <span class="st">"Kompletne"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">90</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>wykres2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="poziomy-stężeń-substancji" class="level3">
+<h3 class="anchored" data-anchor-id="poziomy-stężeń-substancji">4.1 Poziomy stężeń substancji</h3>
+<p>Sprawdźmy teraz jak prezentuje sie poziom zanieczyszczeń powietrza substancją pyłową PM10, dopuszczalne roczne stężenie wynosi 40 µg/m3:</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-12_1e2b52bad65ebdd69f69a1f8543b0d1c">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>wykres4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(aqm_ocena_1, dat.cap <span class="sc">&gt;=</span> <span class="dv">90</span> <span class="sc">&amp;</span> pollutant <span class="sc">==</span> <span class="st">"PM10"</span>), </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(year), <span class="at">y =</span> mean, <span class="at">fill =</span> mean <span class="sc">&lt;</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"#3498db"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span>  </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">40</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Średnioroczne wartości stężenia PM10 w powietrzu"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Stacja - SkKielTargow"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Wartość średnioroczna</span><span class="sc">\n</span><span class="st">[μg/m3]"</span>,  </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Poziom dopuszczalny"</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,  </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#ecf0f1"</span>),  </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))  </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>wykres5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(aqm_ocena_2, dat.cap <span class="sc">&gt;=</span> <span class="dv">90</span> <span class="sc">&amp;</span> pollutant <span class="sc">==</span> <span class="st">"PM10"</span>), </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(year), <span class="at">y =</span> mean, <span class="at">fill =</span> mean <span class="sc">&lt;</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"#2ecc71"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span>  </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">40</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Stacja - SkKielWarsz1"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Rok"</span>,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Wartość średnioroczna</span><span class="sc">\n</span><span class="st">[μg/m3]"</span>, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Poziom dopuszczalny"</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,  </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#ecf0f1"</span>),  </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))  </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(wykres4, wykres5, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Jak widać, w żadnym roku nie został przekroczony poziom stężenia PM10 na terenie Kielc, widać że stężenie to oscyluje przez większość czasu w okolicach połowy dopuszczalnej maksymalnej rocznej wartości.</p>
+<p>To samo zróbmy dla NO2, tutaj podobnie jak w przypadku PM10 dopuszczalne stężenie w roku kalendarzowym wynosi 40 µg/m3:</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-13_0ec15d95766d6e90003eca52a1b6b7a0">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wykres6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(aqm_ocena_1, dat.cap <span class="sc">&gt;=</span> <span class="dv">90</span> <span class="sc">&amp;</span> pollutant <span class="sc">==</span> <span class="st">"NO2"</span>), </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(year), <span class="at">y =</span> mean, <span class="at">fill =</span> mean <span class="sc">&lt;</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"#3498db"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span>  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">40</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Średnioroczne wartości stężenia NO2 w powietrzu"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Stacja - SkKielTargow"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Wartość średnioroczna</span><span class="sc">\n</span><span class="st">[μg/m3]"</span>,  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Poziom dopuszczalny"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#ecf0f1"</span>),  </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))  </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>wykres7 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(aqm_ocena_2, dat.cap <span class="sc">&gt;=</span> <span class="dv">80</span> <span class="sc">&amp;</span> pollutant <span class="sc">==</span> <span class="st">"NO2"</span>), </span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(year), <span class="at">y =</span> mean, <span class="at">fill =</span> mean <span class="sc">&lt;</span> <span class="dv">40</span>)) <span class="sc">+</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"#2ecc71"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span>  </span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">40</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Stacja - SkKielWarsz1"</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Rok"</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Wartość średnioroczna</span><span class="sc">\n</span><span class="st">[μg/m3]"</span>, </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Poziom dopuszczalny"</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,  </span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#ecf0f1"</span>),  </span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))  </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(wykres6, wykres7, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Podsumowując, mimo, że z pierwszych wykresów mogłoby wydawać się, że poziom stężenia NO2 w Kielcach w latach 2018-2022 był przekraczany tak tutaj widać doskonale, że w każdym roku kalendarzowym pomiary na stacjach ukazywały wyniki poniżej maksymalnych dopuszczalnych poziomów zanieczyszczeń w powietrzu, co pokazuje że jakość powietrza nie jest zła w porównaniu np. do innych większych miast w Polsce.</p>
+</section>
+</section>
+<section id="warunki-meteorologiczne-a-steżenia-zanieczyszczeń-powietrza" class="level2">
+<h2 class="anchored" data-anchor-id="warunki-meteorologiczne-a-steżenia-zanieczyszczeń-powietrza">5. Warunki meteorologiczne a steżenia zanieczyszczeń powietrza</h2>
+<p>Aby dokładniej przeanalizować sprawę zanieczyszczeń musimy zbadać nie tylko pomiary z urządzeń, w tym rozdziale przyjrzymy się innym czynnikom mogącym wpływać na stężenia substancji w powietrzu, np. warunki atmosferyczne i takie czynniki jak: siła i kierunek wiatru, temperatura czy wilgotność powietrza.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-14_80db35e9d21558f6d57eec661dfb15a3">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Jak widać najmocniejszy wiatr rejestrowany był zimą oraz wiosną, słabszy latem i jesienią. Z tego względu stężenia zanieczyszczeń powinny się różnić między zimą, wiosną a latem i jesienią ponieważ wiatr powoduje zmniejszenie zanieczyszczenia powietrza.</p>
+<p>Sprawdźmy jak wygląda stężenie NO2 w Kielcach z uwzględnieniem kierunku wiatru:</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-15_6b80116e7b2711deb1c3885a8e27377b">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Widzimy, że w przypadku stacji <strong>SkKielTargow</strong> najczęściej oddziaływuje wiatr z kierunku północno-wschodniego oraz zachodniego/północno-zachodniego. Źródłem zanieczyszczeń z tych kierunków mogą być autobusy kursującego w okolicach stacji a także zakłady przemysłowe znajdujące się na zachód od stacji.</p>
+<p>Jeśli chodzi o stacje <strong>SkKielWarsz1</strong> to tutaj także najczęściej występują wiatry z kierunków północno-wschodniego oraz zachodniego/północno-zachodniego. W tym przypadku prawdopodobnie za wysokie stężenie NO2 w powietrzu odpowiedzialny jest transport drogowy iż stacja znajduje się zaraz obok wielopasmowej ulicy, po której może poruszać się wiele pojazdów.</p>
+<section id="badanie-źródła-emisji-pyłu-pm10-w-kielcach" class="level3">
+<h3 class="anchored" data-anchor-id="badanie-źródła-emisji-pyłu-pm10-w-kielcach">5.1 Badanie źródła emisji pyłu PM10 w Kielcach</h3>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-16_2cb73e7fd7e0cd3b943a7e5a2c4d4fc9">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielWarsz1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">polarAnnulus</span>(<span class="at">pollutant =</span> <span class="st">"PM10"</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">period =</span> <span class="st">"hour"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Widać, że stężenie jest największe w godzinach nocnych, wysoki poziom utrzymuje się do około godziny 13. spowodowane może byc to przez mniejszy ruch pojazdów co oznacza mniejszą emisję pyłów z silników spalinowych a w rezultacie wzrostem stężenia pyłu PM10. Kolejnym czynnikiem może być palenie w piecu w godzinach nocnych. W nocy często występuje stabilizacja atmosferyczna, co oznacza, że powietrze jest mniej wietrzne. W takich warunkach pyły mają tendencję do osadzania się bliżej powierzchni ziemi, zamiast być rozprzestrzeniane w atmosferze. To może prowadzić także do wzrostu stężenia pyłów PM10</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-17_6bafd9ba19149c6d00baae13debc5c63">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">polarPlot</span>(<span class="at">pollutant =</span> <span class="st">"PM10"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="st">"air_temp"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">wd =</span> <span class="st">"wd"</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"kod"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">statistic =</span> <span class="st">"max"</span>, <span class="at">auto.text =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Z powyższego wykresu możemy wywnioskować,że główynm emitentem zanieczyszczeń pyłem PM10 będzie ogrzewanie domowe, z tego względu że przekraczany dozwolony dobowy poziom zanieczyszczeń powietrza pyłem PM10 występuje w godzinach nocnych. Pomóc w zmniejszeniu stężenia powinna np. Wymiana starych pieców grzewczych.</p>
+</section>
+</section>
+<section id="cykliczność-zmian-stężeń" class="level2">
+<h2 class="anchored" data-anchor-id="cykliczność-zmian-stężeń">6. Cykliczność zmian stężeń</h2>
+<p>W tym rozdziale przyjrzymy się, jak zmieniało się stężenie w zależności od godziny, dnia, tygodnia, miesiąca</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-18_add25300d18d0ff76921e22f693f1fbb">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2018</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SkKielTargow"</span>, <span class="st">"SkKielWarsz1"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timeVariation</span>(<span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>), </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> <span class="st">"kod"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">difference =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Widzimy, że wzrost NO2 w latach 2018-2022 następował w godzinach nocnych, największe stężenie występowało w miesiącach jesienno-zimowych co potwierdza wcześniejsze tezy że źródłem zanieczyszczeń są głównie piece grzewcze. Widać wyraźnie także to, że wraz z upływem dni tygodnia stężenie miało tendencję spadkową.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-19_8a5044c675cc9d298c2b913178fa6229">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2018</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SkKielTargow"</span>, <span class="st">"SkKielWarsz1"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">timeVariation</span>(<span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>,<span class="st">"PM10"</span>,<span class="st">"C6H6"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">difference =</span> F,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">normalise =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Na powyższym wykresie widać pozostałe, wspólne dla obu stacji stężenia mierzonych substancji, zmienność wszystkich zanieczyszczeń jest podobna, tendencje spadkowe w podobnych okresach, zarówno jeśli chodzi o rozkład godzinowy, miesięczny oraz dni tygodnia.</p>
+</section>
+<section id="trendy" class="level2">
+<h2 class="anchored" data-anchor-id="trendy">7.Trendy</h2>
+<p>W tym rozdziale za pomocą,funkcji ‘trendLevel’ pokazałem, jak wzrasta stężenie NO2 w oparciu o prędkość wiatru w latach 2018-2022 dla stacji <strong>SkKielTargow</strong>.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-20_45324ec6472296d4a833ee778eb8258d">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SkKielTargow"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectByDate</span>(<span class="at">year =</span> <span class="dv">2018</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trendLevel</span>(<span class="at">pollutant =</span> <span class="st">"NO2"</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">type =</span> <span class="st">"year"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> <span class="st">"month"</span>, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> <span class="st">"ws"</span>, </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">n.levels =</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">5</span>,<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Widać, że na przestrzeni lat 2018-2022 poziom stężenia NO2 w powietrzu przy niskiej prędkości wiatru wzrastał znacznie, najbardziej w 2022 roku, we wcześniejszych latach wzrost ten był łagodniejszy</p>
+<p>Następnie za pomoca funkcji ‘TheilSen’ przedstawiłem jak kształtuje się stężenie w zależności od kierunku wiatru. Na wykresie widać że wiatr południowy powoduje, że poziom zanieczyszczenia jest mniejszy niż, gdy wiatr wieje z innych kierunków. Najbardziej szkodliwe są wiatry: północno-wschodni, wschodni i południowo-wschodni.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-21_bac67b47c212c28ec722f216cd361cb7">
+<details>
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>aqm_kielce <span class="ot">&lt;-</span> aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielTargow"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">TheilSen</span>(<span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>), </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">deseason =</span> T, </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"wd"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">x.relation =</span> <span class="st">"free"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">y.relation =</span> <span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sprawdziłem też czy wilgotnośc ma wpływ na spadek bądź wzrost stężenia NO2, tym razem dla stacji <strong>SkKIelWarsz1</strong>, jednak jak widać na wykresie poniżej ciężko jednoznacznie określić, czy wahania wilgotności wpływaja na poziom stężenia NO2, ponieważ zarówno przy niskiej wilgotnośći jak i przy zakresie 92.9-100 poziom dopuszczalny został przekroczony.</p>
+<div class="cell" data-layout-align="center" data-hash="projekt_cache/html/unnamed-chunk-22_9311f7b4761f6d29ab8bbd3645cb20ad">
+<details open="">
+<summary>Wyświetl lub zwiń kod</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>aqm_kielce <span class="ot">&lt;-</span> aqm_met <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kod <span class="sc">==</span> <span class="st">"SkKielWarsz1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">TheilSen</span>(<span class="at">pollutant =</span> <span class="fu">c</span>(<span class="st">"NO2"</span>), </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">deseason =</span> T, </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"RH"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">x.relation =</span> <span class="st">"free"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">y.relation =</span> <span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."
+[1] "Taking bootstrap samples. Please wait."</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="projekt_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="projekt_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
